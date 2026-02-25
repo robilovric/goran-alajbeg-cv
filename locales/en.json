@@ -1,6 +1,8 @@
 {
   "tagline": "Marine Electrical Engineer & Nautician",
+    "bio": "I was born on March 9, 1999, in Split, and I grew up in Kaštela with my family, with whom I still live today. I completed my primary education at Bijaci Elementary School in Kaštel Novi, where I also formed my first lasting friendships. I continued my education at the Maritime High School in Split, which I completed with very good results. In 2018, I enrolled at the Faculty of Maritime Studies in Split — specializing in Maritime Electrical Engineering and Information Technology — and successfully graduated in 2024, while maintaining continuous student engagement throughout my studies. During my studies, I gained experience in diverse working environments: from hospitality and skippering motor yachts along the Dalmatian islands, to technical maintenance of IT equipment in public administration. This path shaped my professional profile — practical, adaptable, and resourceful in all conditions. I take pride in my extensive work experience, conscientious and efficient approach to work, and respect for hierarchy and teamwork. I adapt well to different working environments and am ready to take on responsibility at all levels.",
   "sections": {
+    "bio": "About me",
     "experience": "Work Experience",
     "education": "Education",
     "skills": "Technical Skills",

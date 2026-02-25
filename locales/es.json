@@ -1,6 +1,9 @@
 {
   "tagline": "Ingeniero Eléctrico Marino y Nauta",
+    "bio": "Nací el 9 de marzo de 1999 en Split y crecí en Kaštela con mi familia, con la que aún vivo hoy. Completé mi educación primaria en la Escuela Primaria Bijaci en Kaštel Novi, donde también formé mis primeras amistades duraderas. Continué mi educación en la Escuela Marítima de Split, la cual finalicé con muy buenos resultados. En 2018 me matriculé en la Facultad de Estudios Marítimos en Split — especializándome en Ingeniería Eléctrica Marítima y Tecnologías de la Información — y me gradué con éxito en 2024, manteniendo una participación estudiantil continua a lo largo de mis estudios. Durante mi formación adquirí experiencia en diversos entornos laborales: desde la hostelería y el manejo de yates a motor por las islas dálmatas, hasta el mantenimiento técnico de equipos informáticos en la administración pública. Este recorrido ha definido mi perfil profesional: práctico, adaptable y resolutivo en cualquier circunstancia. Me enorgullece mi amplia experiencia laboral, mi enfoque responsable y eficiente hacia el trabajo, así como el respeto por la jerarquía y el trabajo en equipo. Me adapto fácilmente a distintos entornos laborales y estoy dispuesto a asumir responsabilidades en todos los niveles."
+,
   "sections": {
+    "bio": "Biografía",
     "experience": "Experiencia Laboral",
     "education": "Educación",
     "skills": "Competencias Técnicas",
