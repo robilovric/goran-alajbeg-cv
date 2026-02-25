@@ -1,0 +1,137 @@
+{
+  "tagline": "Brodski elektrotehnički inženjer & Nautičar",
+  "sections": {
+    "experience": "Radno iskustvo",
+    "education": "Obrazovanje",
+    "skills": "Tehničke vještine",
+    "languages_hobbies": "Jezici & Hobiji",
+    "languages": "Jezici",
+    "hobbies": "Hobiji"
+  },
+  "experience": [
+    {
+      "company": "Korkyra Shipping d.o.o.",
+      "date": "05/2025 — 12/2025",
+      "role": "Asistent elektrotehnike",
+      "bullets": [
+        "Asistiranje u održavanju i nadzoru brodskih elektroenergetskih sustava.",
+        "Rad na navigacijskoj i komunikacijskoj opremi u skladu s brodskim procedurama.",
+        "Sudjelovanje u preventivnom održavanju prema PMS planu."
+      ]
+    },
+    {
+      "company": "Splitsko-dalmatinska županija",
+      "date": "2022 — 2025",
+      "role": "Poslovi održavanja informatičke opreme — studentski posao",
+      "bullets": [
+        "Dijagnostika, servisiranje i održavanje računalne i mrežne opreme.",
+        "Arhiviranje i obrada dokumentacije u internim informacijskim sustavima.",
+        "Komunikacija s korisnicima i pružanje tehničke podrške."
+      ]
+    },
+    {
+      "company": "Argola Charter",
+      "date": "2019 — 2024",
+      "role": "Skipper / Base Manager — puno / pola radnog vremena",
+      "bullets": [
+        "Upravljanje gliserima i motornim jahtama do 15 m duljine.",
+        "Planiranje navigacijskih ruta uzduž Jadranske obale i otočja.",
+        "Odgovornost za sigurnost posade i putnika; provođenje sigurnosnih procedura i brifinga.",
+        "Upravljanje bazom charter plovila: koordinacija iznajmljivanja, primopredaja plovila.",
+        "Zimski servisi i poslovi tehničkog održavanja više od 50 različitih brodova."
+      ]
+    },
+    {
+      "company": "M/Y Orlando L",
+      "date": "2019",
+      "role": "Mornar — studentski posao",
+      "bullets": [
+        "Pomoć u navigaciji i svakodnevnom radu posade na motornoj jahti."
+      ]
+    },
+    {
+      "company": "Dolis d.o.o. & Hotel-Restoran „Baletna škola",
+      "date": "2018 — 2019",
+      "role": "Konobar — studentski posao",
+      "bullets": [
+        "Usluživanje gostiju i rad u timu u ugostiteljskom i hotelskom okruženju."
+      ]
+    },
+    {
+      "company": "M/Y Galatea",
+      "date": "2017",
+      "role": "Poslovi održavanja — učenički posao",
+      "bullets": [
+        "Stjecanje praktičnih znanja o poslovima tehničkog održavanja broda."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Pomorski fakultet Split",
+      "degree": "Sveučilišni prijediplomski studij pomorskih elektrotehnič\u00adkih i informatičkih tehnologija",
+      "date": "10/2018 — 09/2023",
+      "note": "Titula: <strong>bacc. elektrotehnike i informatike</strong> · Sveučilišno državno natjecanje u plivanju."
+    },
+    {
+      "institution": "Pomorska škola Split",
+      "degree": "Redovno srednjoškolsko obrazovanje",
+      "date": "09/2013 — 06/2017",
+      "note": "Smjer: <strong>Tehničar za logistiku</strong>"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Elektrotehnički sustavi",
+      "items": [
+        "Niskonaponski i visokonaponski brodski elektroenergetski sustavi",
+        "Generatori, transformatori, razvodne ploče (MSB/ESB) i UPS sustavi",
+        "Električni pogoni i frekventni pretvarači (VFD)",
+        "Dijagnostika i otklanjanje kvarova brodskih el. instalacija"
+      ]
+    },
+    {
+      "title": "Navigacijska i komunikacijska oprema",
+      "items": [
+        "GMDSS: VHF/MF/HF radio, EPIRB, SART, Inmarsat",
+        "ECDIS, GPS, AIS, radar (ARPA), žirokompas, autopilot",
+        "Integracija, kalibracija i servisiranje navigacijskih sustava"
+      ]
+    },
+    {
+      "title": "Automatika i upravljački sustavi",
+      "items": [
+        "PLC sustavi i brodska SCADA / IAS sučelja",
+        "Senzori, aktuatori i nadzorne ploče strojarnice",
+        "Brodske mreže i komunikacijski protokoli (Modbus, NMEA 2000)"
+      ]
+    },
+    {
+      "title": "Dijagnostička oprema i alati",
+      "items": [
+        "Multimetri, osciloskopi, izolacijski testeri, termovizijska kamera",
+        "Rad s tehničkom dokumentacijom: sheme, crteži, priručnici (IEC standardi)",
+        "MS Office, AutoCAD Electrical (osnove)"
+      ]
+    },
+    {
+      "title": "Sigurnost i propisi",
+      "items": [
+        "Poznavanje SOLAS, MARPOL, ISM Code i MLC konvencija",
+        "STCW procedure i brodski SMS",
+        "Provođenje sigurnosnih provjera i preventivnog održavanja (PMS)"
+      ]
+    }
+  ],
+  "languages_list": [
+    "<strong>Hrvatski</strong> — materinji jezik",
+    "<strong>Engleski</strong> — napredno (razumijevanje i govor: C1, pisanje: B2)"
+  ],
+  "hobbies_list": [
+    "Nautika i jedriličarstvo",
+    "Ribolov",
+    "Kuhanje",
+    "Fitness",
+    "„Kućni majstor — elektrika i mehanika"
+  ]
+}

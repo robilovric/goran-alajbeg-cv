@@ -1,0 +1,137 @@
+{
+  "tagline": "Schiffselektrotechnik-Ingenieur & Nautiker",
+  "sections": {
+    "experience": "Berufserfahrung",
+    "education": "Ausbildung",
+    "skills": "Technische Fähigkeiten",
+    "languages_hobbies": "Sprachen & Hobbys",
+    "languages": "Sprachen",
+    "hobbies": "Hobbys"
+  },
+  "experience": [
+    {
+      "company": "Korkyra Shipping d.o.o.",
+      "date": "05/2025 — 12/2025",
+      "role": "Assistent Elektrotechnik",
+      "bullets": [
+        "Unterstützung bei Wartung und Überwachung der elektrischen Schiffsanlagen.",
+        "Arbeit an Navigations- und Kommunikationsgeräten gemäß Schiffsverfahren.",
+        "Teilnahme an vorbeugender Wartung gemäß PMS-Plan."
+      ]
+    },
+    {
+      "company": "Gespanschaft Splitsko-dalmatinska",
+      "date": "2022 — 2025",
+      "role": "IT-Gerätewartung — Studentenjob",
+      "bullets": [
+        "Diagnose, Service und Wartung von Computer- und Netzwerkgeräten.",
+        "Archivierung und Bearbeitung von Dokumenten in internen Informationssystemen.",
+        "Benutzerkommunikation und technischer Support."
+      ]
+    },
+    {
+      "company": "Argola Charter",
+      "date": "2019 — 2024",
+      "role": "Skipper / Basismanager — Voll- / Teilzeit",
+      "bullets": [
+        "Führung von Motorbooten und Motoryachten bis 15 m Länge.",
+        "Planung von Navigationsrouten entlang der adriatischen Küste und Inseln.",
+        "Verantwortung für die Sicherheit von Besatzung und Passagieren; Durchführung von Sicherheitsverfahren und Briefings.",
+        "Verwaltung der Charterflottenbasis: Verleihkoordination, Bootsübergaben.",
+        "Winterwartung und technische Instandhaltung von mehr als 50 verschiedenen Schiffen."
+      ]
+    },
+    {
+      "company": "M/Y Orlando L",
+      "date": "2019",
+      "role": "Matrose — Studentenjob",
+      "bullets": [
+        "Unterstützung bei Navigation und täglichem Bordbetrieb auf einer Motoryacht."
+      ]
+    },
+    {
+      "company": "Dolis d.o.o. & Hotel-Restaurant „Baletna škola",
+      "date": "2018 — 2019",
+      "role": "Kellner — Studentenjob",
+      "bullets": [
+        "Gästebetreuung und Teamarbeit in einem Gastronomie- und Hotelumfeld."
+      ]
+    },
+    {
+      "company": "M/Y Galatea",
+      "date": "2017",
+      "role": "Wartungsarbeiten — Schülerpraktikum",
+      "bullets": [
+        "Erwerb praktischer Kenntnisse in der technischen Schiffswartung."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Seefahrtsfakultät Split",
+      "degree": "Universitärer Grundstudiengang Maritime Elektrotechnik und Informationstechnologien",
+      "date": "10/2018 — 09/2023",
+      "note": "Abschluss: <strong>Bacc. Elektrotechnik und Informatik</strong> · Universitäts-Staatsmeisterschaft im Schwimmen."
+    },
+    {
+      "institution": "Seeschule Split",
+      "degree": "Reguläre Mittelschulausbildung",
+      "date": "09/2013 — 06/2017",
+      "note": "Fachrichtung: <strong>Logistiktechniker</strong>"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Elektrische Systeme",
+      "items": [
+        "Niederspannungs- und Hochspannungs-Schiffselektrosysteme",
+        "Generatoren, Transformatoren, Schalttafeln (MSB/ESB) und USV-Systeme",
+        "Elektrische Antriebe und Frequenzumrichter (VFD)",
+        "Diagnose und Fehlerbehebung an Schiffselektroinstallationen"
+      ]
+    },
+    {
+      "title": "Navigations- & Kommunikationsgeräte",
+      "items": [
+        "GMDSS: VHF/MF/HF-Funk, EPIRB, SART, Inmarsat",
+        "ECDIS, GPS, AIS, Radar (ARPA), Kreiselkompass, Autopilot",
+        "Integration, Kalibrierung und Wartung von Navigationssystemen"
+      ]
+    },
+    {
+      "title": "Automatisierung & Steuerungssysteme",
+      "items": [
+        "SPS-Systeme und Schiffs-SCADA / IAS-Schnittstellen",
+        "Sensoren, Aktoren und Maschinenraum-Überwachungstafeln",
+        "Schiffsnetzwerke und Kommunikationsprotokolle (Modbus, NMEA 2000)"
+      ]
+    },
+    {
+      "title": "Diagnosegeräte & Werkzeuge",
+      "items": [
+        "Multimeter, Oszilloskope, Isolationstester, Wärmebildkamera",
+        "Arbeit mit technischer Dokumentation: Schemata, Zeichnungen, Handbücher (IEC-Normen)",
+        "MS Office, AutoCAD Electrical (Grundkenntnisse)"
+      ]
+    },
+    {
+      "title": "Sicherheit & Vorschriften",
+      "items": [
+        "Kenntnisse von SOLAS, MARPOL, ISM-Code und MLC-Übereinkommen",
+        "STCW-Verfahren und Schiffs-SMS",
+        "Durchführung von Sicherheitsprüfungen und vorbeugender Wartung (PMS)"
+      ]
+    }
+  ],
+  "languages_list": [
+    "<strong>Kroatisch</strong> — Muttersprache",
+    "<strong>Englisch</strong> — fortgeschritten (Hören & Sprechen: C1, Schreiben: B2)"
+  ],
+  "hobbies_list": [
+    "Nautik & Segeln",
+    "Angeln",
+    "Kochen",
+    "Fitness",
+    "„Heimwerker — Elektro- und Mechanikarb."
+  ]
+}

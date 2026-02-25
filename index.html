@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <title>Goran Alajbeg – CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +23,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -33,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* ── BACKGROUND OCEAN EFFECT ── */
   body::before {
     content: '';
     position: fixed;
@@ -45,7 +44,6 @@
     z-index: -2;
   }
 
-  /* wave shimmer lines */
   body::after {
     content: '';
     position: fixed;
@@ -60,6 +58,47 @@
       );
     z-index: -1;
     pointer-events: none;
+  }
+
+  /* ── LANGUAGE PICKER ── */
+  .lang-bar {
+    position: fixed;
+    top: 14px;
+    right: 20px;
+    z-index: 200;
+    display: flex;
+    gap: 6px;
+    background: rgba(10,22,40,0.75);
+    border: 1px solid rgba(30,136,199,0.25);
+    border-radius: 50px;
+    padding: 5px 10px;
+    backdrop-filter: blur(12px);
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 3px 5px;
+    border-radius: 6px;
+    transition: background 0.2s, transform 0.15s;
+    opacity: 0.55;
+    filter: grayscale(0.4);
+  }
+
+  .lang-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.15);
+    background: rgba(30,136,199,0.12);
+  }
+
+  .lang-btn.active {
+    opacity: 1;
+    filter: none;
+    background: rgba(30,136,199,0.2);
+    transform: scale(1.1);
   }
 
   /* ── LAYOUT ── */
@@ -128,6 +167,7 @@
     width: 16px;
     height: 16px;
     opacity: 0.6;
+    flex-shrink: 0;
   }
 
   /* ── SECTIONS ── */
@@ -162,7 +202,7 @@
     background: linear-gradient(to right, var(--rule), transparent);
   }
 
-  /* ── EXPERIENCE ENTRIES ── */
+  /* ── EXPERIENCE ── */
   .entry {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -215,6 +255,8 @@
     align-self: center;
     text-align: right;
     letter-spacing: 0.05em;
+    /* prevent browser from linkifying date ranges */
+    unicode-bidi: plaintext;
   }
 
   .entry-bullets {
@@ -244,7 +286,7 @@
     top: 1px;
   }
 
-  /* ── SKILLS GRID ── */
+  /* ── SKILLS ── */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -334,6 +376,7 @@
     color: var(--muted);
     font-weight: 300;
     white-space: nowrap;
+    unicode-bidi: plaintext;
   }
 
   .edu-note {
@@ -445,17 +488,14 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .page { padding: 28px 16px 48px; }
-
     header { flex-direction: column; align-items: flex-start; }
     .contact-block { text-align: left; }
     .contact-block a { justify-content: flex-start; }
-
     .entry { grid-template-columns: 1fr; }
     .entry-date { grid-row: auto; grid-column: 1; text-align: left; margin-top: 2px; }
-
     .two-col { grid-template-columns: 1fr; }
-
     .skills-grid { grid-template-columns: 1fr; }
+    .lang-bar { top: 10px; right: 10px; padding: 4px 8px; }
   }
 </style>
 </head>
@@ -463,198 +503,65 @@
 
 <div id="progress-bar"></div>
 
+<!-- LANGUAGE PICKER -->
+<div class="lang-bar" role="navigation" aria-label="Language selector">
+  <button class="lang-btn active" data-lang="hr" title="Hrvatski" aria-label="Hrvatski">🇭🇷</button>
+  <button class="lang-btn" data-lang="en" title="English" aria-label="English">🇬🇧</button>
+  <button class="lang-btn" data-lang="de" title="Deutsch" aria-label="Deutsch">🇩🇪</button>
+  <button class="lang-btn" data-lang="it" title="Italiano" aria-label="Italiano">🇮🇹</button>
+</div>
+
 <main class="page">
 
   <!-- HEADER -->
   <header>
     <div class="name-block">
       <h1>Goran Alajbeg</h1>
-      <div class="tagline">Brodski elektrotehnički inženjer &amp; Nautičar</div>
+      <div class="tagline" id="tagline"></div>
     </div>
     <div class="contact-block">
       <a href="mailto:goranalajbeg0903@gmail.com">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         goranalajbeg0903@gmail.com
       </a>
-      <a href="tel:+385917314406">
+      <!-- telephone=no meta tag + span prevents auto-linking -->
+      <span class="contact-block-phone" style="color:var(--foam);font-size:0.88rem;font-weight:300;display:flex;align-items:center;justify-content:flex-end;gap:6px;">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        +385 91 731 4406
-      </a>
+        <span>+385&#8239;91&#8239;731&#8239;4406</span>
+      </span>
     </div>
   </header>
 
-  <!-- RADNO ISKUSTVO -->
+  <!-- EXPERIENCE -->
   <section data-animate>
-    <div class="section-title">Radno iskustvo</div>
-
-    <div class="entry">
-      <div class="entry-company">Korkyra Shipping d.o.o.</div>
-      <div class="entry-date">05/2025 — 12/2025</div>
-      <div class="entry-role">Asistent elektrotehnike</div>
-      <ul class="entry-bullets">
-        <li>Asistiranje u održavanju i nadzoru brodskih elektroenergetskih sustava.</li>
-        <li>Rad na navigacijskoj i komunikacijskoj opremi u skladu s brodskim procedurama.</li>
-        <li>Sudjelovanje u preventivnom održavanju prema PMS planu.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-company">Splitsko-dalmatinska županija</div>
-      <div class="entry-date">2022 — 2025</div>
-      <div class="entry-role">Poslovi održavanja informatičke opreme — studentski posao</div>
-      <ul class="entry-bullets">
-        <li>Dijagnostika, servisiranje i održavanje računalne i mrežne opreme.</li>
-        <li>Arhiviranje i obrada dokumentacije u internim informacijskim sustavima.</li>
-        <li>Komunikacija s korisnicima i pružanje tehničke podrške.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-company">Argola Charter</div>
-      <div class="entry-date">2019 — 2024</div>
-      <div class="entry-role">Skipper / Base Manager — puno / pola radnog vremena</div>
-      <ul class="entry-bullets">
-        <li>Upravljanje gliserima i motornim jahtama do 15 m duljine.</li>
-        <li>Planiranje navigacijskih ruta uzduž Jadranske obale i otočja.</li>
-        <li>Odgovornost za sigurnost posade i putnika; provođenje sigurnosnih procedura i brifinga.</li>
-        <li>Upravljanje bazom charter plovila: koordinacija iznajmljivanja, primopredaja plovila.</li>
-        <li>Zimski servisi i poslovi tehničkog održavanja više od 50 različitih brodova.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-company">M/Y Orlando L</div>
-      <div class="entry-date">2019</div>
-      <div class="entry-role">Mornar — studentski posao</div>
-      <ul class="entry-bullets">
-        <li>Pomoć u navigaciji i svakodnevnom radu posade na motornoj jahti.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-company">Dolis d.o.o. &amp; Hotel-Restoran „Baletna škola"</div>
-      <div class="entry-date">2018 — 2019</div>
-      <div class="entry-role">Konobar — studentski posao</div>
-      <ul class="entry-bullets">
-        <li>Usluživanje gostiju i rad u timu u ugostiteljskom i hotelskom okruženju.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-company">M/Y Galatea</div>
-      <div class="entry-date">2017</div>
-      <div class="entry-role">Poslovi održavanja — učenički posao</div>
-      <ul class="entry-bullets">
-        <li>Stjecanje praktičnih znanja o poslovima tehničkog održavanja broda.</li>
-      </ul>
-    </div>
+    <div class="section-title" id="sec-experience"></div>
+    <div id="experience-list"></div>
   </section>
 
-  <!-- OBRAZOVANJE -->
+  <!-- EDUCATION -->
   <section data-animate>
-    <div class="section-title">Obrazovanje</div>
-
-    <div class="edu-entry">
-      <div class="edu-meta">
-        <div>
-          <div class="edu-institution">Pomorski fakultet Split</div>
-          <div class="edu-degree">Sveučilišni prijediplomski studij pomorskih elektrotehnič­kih i informatičkih tehnologija</div>
-        </div>
-        <div class="edu-date">10/2018 — 09/2023</div>
-      </div>
-      <div class="edu-note">Titula: <strong>bacc. elektrotehnike i informatike</strong> · Sveučilišno državno natjecanje u plivanju.</div>
-    </div>
-
-    <div class="edu-entry">
-      <div class="edu-meta">
-        <div>
-          <div class="edu-institution">Pomorska škola Split</div>
-          <div class="edu-degree">Redovno srednjoškolsko obrazovanje</div>
-        </div>
-        <div class="edu-date">09/2013 — 06/2017</div>
-      </div>
-      <div class="edu-note">Smjer: <strong>Tehničar za logistiku</strong></div>
-    </div>
+    <div class="section-title" id="sec-education"></div>
+    <div id="education-list"></div>
   </section>
 
-  <!-- TEHNIČKE VJEŠTINE -->
+  <!-- SKILLS -->
   <section data-animate>
-    <div class="section-title">Tehničke vještine</div>
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <div class="skill-card-title">Elektrotehnički sustavi</div>
-        <ul>
-          <li>Niskonaponski i visokonaponski brodski elektroenergetski sustavi</li>
-          <li>Generatori, transformatori, razvodne ploče (MSB/ESB) i UPS sustavi</li>
-          <li>Električni pogoni i frekventni pretvarači (VFD)</li>
-          <li>Dijagnostika i otklanjanje kvarova brodskih el. instalacija</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-title">Navigacijska i komunikacijska oprema</div>
-        <ul>
-          <li>GMDSS: VHF/MF/HF radio, EPIRB, SART, Inmarsat</li>
-          <li>ECDIS, GPS, AIS, radar (ARPA), žirokompas, autopilot</li>
-          <li>Integracija, kalibracija i servisiranje navigacijskih sustava</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-title">Automatika i upravljački sustavi</div>
-        <ul>
-          <li>PLC sustavi i brodska SCADA / IAS sučelja</li>
-          <li>Senzori, aktuatori i nadzorne ploče strojarnice</li>
-          <li>Brodske mreže i komunikacijski protokoli (Modbus, NMEA 2000)</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-title">Dijagnostička oprema i alati</div>
-        <ul>
-          <li>Multimetri, osciloskopi, izolacijski testeri, termovizijska kamera</li>
-          <li>Rad s tehničkom dokumentacijom: sheme, crteži, priručnici (IEC standardi)</li>
-          <li>MS Office, AutoCAD Electrical (osnove)</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-title">Sigurnost i propisi</div>
-        <ul>
-          <li>Poznavanje SOLAS, MARPOL, ISM Code i MLC konvencija</li>
-          <li>STCW procedure i brodski SMS</li>
-          <li>Provođenje sigurnosnih provjera i preventivnog održavanja (PMS)</li>
-        </ul>
-      </div>
-
-    </div>
+    <div class="section-title" id="sec-skills"></div>
+    <div class="skills-grid" id="skills-grid"></div>
   </section>
 
-  <!-- JEZICI & HOBIJI -->
+  <!-- LANGUAGES & HOBBIES -->
   <section data-animate>
-    <div class="section-title">Jezici &amp; Hobiji</div>
+    <div class="section-title" id="sec-langhob"></div>
     <div class="two-col">
-
       <div class="info-card">
-        <div class="info-card-title">Jezici</div>
-        <ul>
-          <li><strong>Hrvatski</strong> — materinji jezik</li>
-          <li><strong>Engleski</strong> — napredno (razumijevanje i govor: C1, pisanje: B2)</li>
-        </ul>
+        <div class="info-card-title" id="sec-languages"></div>
+        <ul id="languages-list"></ul>
       </div>
-
       <div class="info-card">
-        <div class="info-card-title">Hobiji</div>
-        <ul>
-          <li>Nautika i jedriličarstvo</li>
-          <li>Ribolov</li>
-          <li>Kuhanje</li>
-          <li>Fitness</li>
-          <li>„Kućni majstor" — elektrika i mehanika</li>
-        </ul>
+        <div class="info-card-title" id="sec-hobbies"></div>
+        <ul id="hobbies-list"></ul>
       </div>
-
     </div>
   </section>
 
@@ -663,49 +570,138 @@
 </main>
 
 <script>
-  // Scroll progress bar
-  const bar = document.getElementById('progress-bar');
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const total = document.body.scrollHeight - window.innerHeight;
-    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 100) + '%';
-  }, { passive: true });
+// ── INLINE LOCALE DATA (no server needed, works from file://) ──
+const LOCALES = {
+  hr: {"tagline":"Brodski elektrotehnički inženjer & Nautičar","sections":{"experience":"Radno iskustvo","education":"Obrazovanje","skills":"Tehničke vještine","languages_hobbies":"Jezici & Hobiji","languages":"Jezici","hobbies":"Hobiji"},"experience":[{"company":"Korkyra Shipping d.o.o.","date":"05/2025 — 12/2025","role":"Asistent elektrotehnike","bullets":["Asistiranje u održavanju i nadzoru brodskih elektroenergetskih sustava.","Rad na navigacijskoj i komunikacijskoj opremi u skladu s brodskim procedurama.","Sudjelovanje u preventivnom održavanju prema PMS planu."]},{"company":"Splitsko-dalmatinska županija","date":"2022 — 2025","role":"Poslovi održavanja informatičke opreme — studentski posao","bullets":["Dijagnostika, servisiranje i održavanje računalne i mrežne opreme.","Arhiviranje i obrada dokumentacije u internim informacijskim sustavima.","Komunikacija s korisnicima i pružanje tehničke podrške."]},{"company":"Argola Charter","date":"2019 — 2024","role":"Skipper / Base Manager — puno / pola radnog vremena","bullets":["Upravljanje gliserima i motornim jahtama do 15 m duljine.","Planiranje navigacijskih ruta uzduž Jadranske obale i otočja.","Odgovornost za sigurnost posade i putnika; provođenje sigurnosnih procedura i brifinga.","Upravljanje bazom charter plovila: koordinacija iznajmljivanja, primopredaja plovila.","Zimski servisi i poslovi tehničkog održavanja više od 50 različitih brodova."]},{"company":"M/Y Orlando L","date":"2019","role":"Mornar — studentski posao","bullets":["Pomoć u navigaciji i svakodnevnom radu posade na motornoj jahti."]},{"company":"Dolis d.o.o. & Hotel-Restoran „Baletna škola","date":"2018 — 2019","role":"Konobar — studentski posao","bullets":["Usluživanje gostiju i rad u timu u ugostiteljskom i hotelskom okruženju."]},{"company":"M/Y Galatea","date":"2017","role":"Poslovi održavanja — učenički posao","bullets":["Stjecanje praktičnih znanja o poslovima tehničkog održavanja broda."]}],"education":[{"institution":"Pomorski fakultet Split","degree":"Sveučilišni prijediplomski studij pomorskih elektrotehnič\u00adkih i informatičkih tehnologija","date":"10/2018 — 09/2023","note":"Titula: <strong>bacc. elektrotehnike i informatike</strong> · Sveučilišno državno natjecanje u plivanju."},{"institution":"Pomorska škola Split","degree":"Redovno srednjoškolsko obrazovanje","date":"09/2013 — 06/2017","note":"Smjer: <strong>Tehničar za logistiku</strong>"}],"skills":[{"title":"Elektrotehnički sustavi","items":["Niskonaponski i visokonaponski brodski elektroenergetski sustavi","Generatori, transformatori, razvodne ploče (MSB/ESB) i UPS sustavi","Električni pogoni i frekventni pretvarači (VFD)","Dijagnostika i otklanjanje kvarova brodskih el. instalacija"]},{"title":"Navigacijska i komunikacijska oprema","items":["GMDSS: VHF/MF/HF radio, EPIRB, SART, Inmarsat","ECDIS, GPS, AIS, radar (ARPA), žirokompas, autopilot","Integracija, kalibracija i servisiranje navigacijskih sustava"]},{"title":"Automatika i upravljački sustavi","items":["PLC sustavi i brodska SCADA / IAS sučelja","Senzori, aktuatori i nadzorne ploče strojarnice","Brodske mreže i komunikacijski protokoli (Modbus, NMEA 2000)"]},{"title":"Dijagnostička oprema i alati","items":["Multimetri, osciloskopi, izolacijski testeri, termovizijska kamera","Rad s tehničkom dokumentacijom: sheme, crteži, priručnici (IEC standardi)","MS Office, AutoCAD Electrical (osnove)"]},{"title":"Sigurnost i propisi","items":["Poznavanje SOLAS, MARPOL, ISM Code i MLC konvencija","STCW procedure i brodski SMS","Provođenje sigurnosnih provjera i preventivnog održavanja (PMS)"]}],"languages_list":["<strong>Hrvatski</strong> — materinji jezik","<strong>Engleski</strong> — napredno (razumijevanje i govor: C1, pisanje: B2)"],"hobbies_list":["Nautika i jedriličarstvo","Ribolov","Kuhanje","Fitness","„Kućni majstor — elektrika i mehanika"]},
 
-  // Intersection observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = `${i * 0.05}s`;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+  en: {"tagline":"Marine Electrical Engineer & Nautician","sections":{"experience":"Work Experience","education":"Education","skills":"Technical Skills","languages_hobbies":"Languages & Hobbies","languages":"Languages","hobbies":"Hobbies"},"experience":[{"company":"Korkyra Shipping d.o.o.","date":"05/2025 — 12/2025","role":"Electrotechnical Officer Assistant","bullets":["Assisting in the maintenance and monitoring of ship electrical power systems.","Working on navigation and communication equipment in accordance with vessel procedures.","Participating in preventive maintenance according to the PMS plan."]},{"company":"Splitsko-dalmatinska County","date":"2022 — 2025","role":"IT Equipment Maintenance — student job","bullets":["Diagnostics, servicing and maintenance of computer and network equipment.","Archiving and processing documentation in internal information systems.","User communication and technical support."]},{"company":"Argola Charter","date":"2019 — 2024","role":"Skipper / Base Manager — full / part time","bullets":["Operating speedboats and motor yachts up to 15 m in length.","Planning navigation routes along the Adriatic coast and islands.","Responsibility for crew and passenger safety; conducting safety procedures and briefings.","Managing the charter vessel base: rental coordination, vessel handovers.","Winter servicing and technical maintenance of more than 50 different boats."]},{"company":"M/Y Orlando L","date":"2019","role":"Sailor — student job","bullets":["Assisting with navigation and daily crew operations aboard a motor yacht."]},{"company":"Dolis d.o.o. & Hotel-Restaurant \"Ballet School","date":"2018 — 2019","role":"Waiter — student job","bullets":["Serving guests and working as part of a team in a hospitality and hotel environment."]},{"company":"M/Y Galatea","date":"2017","role":"Maintenance work — student job","bullets":["Gaining practical knowledge of vessel technical maintenance tasks."]}],"education":[{"institution":"Faculty of Maritime Studies Split","degree":"University undergraduate study of Maritime Electrical and Information Technologies","date":"10/2018 — 09/2023","note":"Title: <strong>bacc. of Electrical Engineering and Informatics</strong> · University state swimming competition."},{"institution":"Maritime School Split","degree":"Regular secondary school education","date":"09/2013 — 06/2017","note":"Programme: <strong>Logistics Technician</strong>"}],"skills":[{"title":"Electrical Systems","items":["Low-voltage and high-voltage ship electrical power systems","Generators, transformers, switchboards (MSB/ESB) and UPS systems","Electric drives and variable frequency drives (VFD)","Diagnostics and troubleshooting of ship electrical installations"]},{"title":"Navigation & Communication Equipment","items":["GMDSS: VHF/MF/HF radio, EPIRB, SART, Inmarsat","ECDIS, GPS, AIS, radar (ARPA), gyrocompass, autopilot","Integration, calibration and servicing of navigation systems"]},{"title":"Automation & Control Systems","items":["PLC systems and ship SCADA / IAS interfaces","Sensors, actuators and engine room monitoring panels","Ship networks and communication protocols (Modbus, NMEA 2000)"]},{"title":"Diagnostic Equipment & Tools","items":["Multimeters, oscilloscopes, insulation testers, thermal imaging camera","Working with technical documentation: schematics, drawings, manuals (IEC standards)","MS Office, AutoCAD Electrical (basics)"]},{"title":"Safety & Regulations","items":["Knowledge of SOLAS, MARPOL, ISM Code and MLC conventions","STCW procedures and ship SMS","Conducting safety checks and preventive maintenance (PMS)"]}],"languages_list":["<strong>Croatian</strong> — native language","<strong>English</strong> — advanced (listening & speaking: C1, writing: B2)"],"hobbies_list":["Nautical sports & sailing","Fishing","Cooking","Fitness","\"Home handyman\" — electrical & mechanical work"]},
+
+  de: {"tagline":"Schiffselektrotechnik-Ingenieur & Nautiker","sections":{"experience":"Berufserfahrung","education":"Ausbildung","skills":"Technische Fähigkeiten","languages_hobbies":"Sprachen & Hobbys","languages":"Sprachen","hobbies":"Hobbys"},"experience":[{"company":"Korkyra Shipping d.o.o.","date":"05/2025 — 12/2025","role":"Assistent Elektrotechnik","bullets":["Unterstützung bei Wartung und Überwachung der elektrischen Schiffsanlagen.","Arbeit an Navigations- und Kommunikationsgeräten gemäß Schiffsverfahren.","Teilnahme an vorbeugender Wartung gemäß PMS-Plan."]},{"company":"Gespanschaft Splitsko-dalmatinska","date":"2022 — 2025","role":"IT-Gerätewartung — Studentenjob","bullets":["Diagnose, Service und Wartung von Computer- und Netzwerkgeräten.","Archivierung und Bearbeitung von Dokumenten in internen Informationssystemen.","Benutzerkommunikation und technischer Support."]},{"company":"Argola Charter","date":"2019 — 2024","role":"Skipper / Basismanager — Voll- / Teilzeit","bullets":["Führung von Motorbooten und Motoryachten bis 15 m Länge.","Planung von Navigationsrouten entlang der adriatischen Küste und Inseln.","Verantwortung für die Sicherheit von Besatzung und Passagieren; Durchführung von Sicherheitsverfahren und Briefings.","Verwaltung der Charterflottenbasis: Verleihkoordination, Bootsübergaben.","Winterwartung und technische Instandhaltung von mehr als 50 verschiedenen Schiffen."]},{"company":"M/Y Orlando L","date":"2019","role":"Matrose — Studentenjob","bullets":["Unterstützung bei Navigation und täglichem Bordbetrieb auf einer Motoryacht."]},{"company":"Dolis d.o.o. & Hotel-Restaurant „Baletna škola","date":"2018 — 2019","role":"Kellner — Studentenjob","bullets":["Gästebetreuung und Teamarbeit in einem Gastronomie- und Hotelumfeld."]},{"company":"M/Y Galatea","date":"2017","role":"Wartungsarbeiten — Schülerpraktikum","bullets":["Erwerb praktischer Kenntnisse in der technischen Schiffswartung."]}],"education":[{"institution":"Seefahrtsfakultät Split","degree":"Universitärer Grundstudiengang Maritime Elektrotechnik und Informationstechnologien","date":"10/2018 — 09/2023","note":"Abschluss: <strong>Bacc. Elektrotechnik und Informatik</strong> · Universitäts-Staatsmeisterschaft im Schwimmen."},{"institution":"Seeschule Split","degree":"Reguläre Mittelschulausbildung","date":"09/2013 — 06/2017","note":"Fachrichtung: <strong>Logistiktechniker</strong>"}],"skills":[{"title":"Elektrische Systeme","items":["Niederspannungs- und Hochspannungs-Schiffselektrosysteme","Generatoren, Transformatoren, Schalttafeln (MSB/ESB) und USV-Systeme","Elektrische Antriebe und Frequenzumrichter (VFD)","Diagnose und Fehlerbehebung an Schiffselektroinstallationen"]},{"title":"Navigations- & Kommunikationsgeräte","items":["GMDSS: VHF/MF/HF-Funk, EPIRB, SART, Inmarsat","ECDIS, GPS, AIS, Radar (ARPA), Kreiselkompass, Autopilot","Integration, Kalibrierung und Wartung von Navigationssystemen"]},{"title":"Automatisierung & Steuerungssysteme","items":["SPS-Systeme und Schiffs-SCADA / IAS-Schnittstellen","Sensoren, Aktoren und Maschinenraum-Überwachungstafeln","Schiffsnetzwerke und Kommunikationsprotokolle (Modbus, NMEA 2000)"]},{"title":"Diagnosegeräte & Werkzeuge","items":["Multimeter, Oszilloskope, Isolationstester, Wärmebildkamera","Arbeit mit technischer Dokumentation: Schemata, Zeichnungen, Handbücher (IEC-Normen)","MS Office, AutoCAD Electrical (Grundkenntnisse)"]},{"title":"Sicherheit & Vorschriften","items":["Kenntnisse von SOLAS, MARPOL, ISM-Code und MLC-Übereinkommen","STCW-Verfahren und Schiffs-SMS","Durchführung von Sicherheitsprüfungen und vorbeugender Wartung (PMS)"]}],"languages_list":["<strong>Kroatisch</strong> — Muttersprache","<strong>Englisch</strong> — fortgeschritten (Hören & Sprechen: C1, Schreiben: B2)"],"hobbies_list":["Nautik & Segeln","Angeln","Kochen","Fitness","„Heimwerker — Elektro- und Mechanikarb."]},
+
+  it: {"tagline":"Ingegnere Elettrotecnico Navale & Nautico","sections":{"experience":"Esperienza Lavorativa","education":"Formazione","skills":"Competenze Tecniche","languages_hobbies":"Lingue & Hobby","languages":"Lingue","hobbies":"Hobby"},"experience":[{"company":"Korkyra Shipping d.o.o.","date":"05/2025 — 12/2025","role":"Assistente Elettrotecnico","bullets":["Assistenza nella manutenzione e nel monitoraggio dei sistemi elettrici di bordo.","Lavoro su apparecchiature di navigazione e comunicazione in conformità alle procedure di bordo.","Partecipazione alla manutenzione preventiva secondo il piano PMS."]},{"company":"Contea di Spalato-Dalmazia","date":"2022 — 2025","role":"Manutenzione apparecchiature IT — lavoro studentesco","bullets":["Diagnosi, assistenza e manutenzione di apparecchiature informatiche e di rete.","Archiviazione ed elaborazione di documentazione nei sistemi informativi interni.","Comunicazione con gli utenti e supporto tecnico."]},{"company":"Argola Charter","date":"2019 — 2024","role":"Skipper / Base Manager — tempo pieno / parziale","bullets":["Conduzione di motoscafi e yacht a motore fino a 15 m di lunghezza.","Pianificazione di rotte di navigazione lungo la costa e le isole adriatiche.","Responsabilità per la sicurezza di equipaggio e passeggeri; svolgimento di procedure di sicurezza e briefing.","Gestione della base charter: coordinamento noleggi, consegna e riconsegna imbarcazioni.","Revisione invernale e manutenzione tecnica di oltre 50 imbarcazioni diverse."]},{"company":"M/Y Orlando L","date":"2019","role":"Marinaio — lavoro studentesco","bullets":["Assistenza alla navigazione e alle operazioni quotidiane dell'equipaggio su uno yacht a motore."]},{"company":"Dolis d.o.o. & Hotel-Ristorante „Baletna škola","date":"2018 — 2019","role":"Cameriere — lavoro studentesco","bullets":["Servizio ai clienti e lavoro di squadra in un contesto di ristorazione e alberghiero."]},{"company":"M/Y Galatea","date":"2017","role":"Lavori di manutenzione — tirocinio scolastico","bullets":["Acquisizione di conoscenze pratiche sulle attività di manutenzione tecnica della nave."]}],"education":[{"institution":"Facoltà di Studi Marittimi di Spalato","degree":"Corso di laurea triennale in Tecnologie Elettriche e Informatiche Maritime","date":"10/2018 — 09/2023","note":"Titolo: <strong>bacc. Ingegneria Elettrica e Informatica</strong> · Gara universitaria statale di nuoto."},{"institution":"Scuola Marittima di Spalato","degree":"Istruzione secondaria regolare","date":"09/2013 — 06/2017","note":"Indirizzo: <strong>Tecnico della logistica</strong>"}],"skills":[{"title":"Sistemi Elettrici","items":["Sistemi elettrici navali in bassa e alta tensione","Generatori, trasformatori, quadri elettrici (MSB/ESB) e sistemi UPS","Azionamenti elettrici e variatori di frequenza (VFD)","Diagnosi e risoluzione di guasti agli impianti elettrici di bordo"]},{"title":"Apparecchiature di Navigazione e Comunicazione","items":["GMDSS: radio VHF/MF/HF, EPIRB, SART, Inmarsat","ECDIS, GPS, AIS, radar (ARPA), girobussola, autopilota","Integrazione, calibrazione e manutenzione dei sistemi di navigazione"]},{"title":"Automazione e Sistemi di Controllo","items":["Sistemi PLC e interfacce SCADA / IAS di bordo","Sensori, attuatori e pannelli di monitoraggio sala macchine","Reti di bordo e protocolli di comunicazione (Modbus, NMEA 2000)"]},{"title":"Apparecchiature Diagnostiche e Strumenti","items":["Multimetri, oscilloscopi, tester di isolamento, telecamera termografica","Lavoro con documentazione tecnica: schemi, disegni, manuali (norme IEC)","MS Office, AutoCAD Electrical (nozioni di base)"]},{"title":"Sicurezza e Normative","items":["Conoscenza delle convenzioni SOLAS, MARPOL, ISM Code e MLC","Procedure STCW e SMS di bordo","Esecuzione di controlli di sicurezza e manutenzione preventiva (PMS)"]}],"languages_list":["<strong>Croato</strong> — madrelingua","<strong>Inglese</strong> — avanzato (ascolto e parlato: C1, scrittura: B2)"],"hobbies_list":["Nautica e vela","Pesca","Cucina","Fitness","\"Tuttofare di casa\" — lavori elettrici e meccanici"]}
+};
+
+// ── RENDER FUNCTIONS ──
+function renderExperience(data) {
+  return data.experience.map(e => `
+    <div class="entry">
+      <div class="entry-company">${e.company}</div>
+      <div class="entry-date">${e.date}</div>
+      <div class="entry-role">${e.role}</div>
+      <ul class="entry-bullets">
+        ${e.bullets.map(b => `<li>${b}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+function renderEducation(data) {
+  return data.education.map(e => `
+    <div class="edu-entry">
+      <div class="edu-meta">
+        <div>
+          <div class="edu-institution">${e.institution}</div>
+          <div class="edu-degree">${e.degree}</div>
+        </div>
+        <div class="edu-date">${e.date}</div>
+      </div>
+      <div class="edu-note">${e.note}</div>
+    </div>
+  `).join('');
+}
+
+function renderSkills(data) {
+  return data.skills.map(s => `
+    <div class="skill-card">
+      <div class="skill-card-title">${s.title}</div>
+      <ul>
+        ${s.items.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+function renderList(items) {
+  return items.map(i => `<li>${i}</li>`).join('');
+}
+
+function applyLocale(lang) {
+  const data = LOCALES[lang];
+  if (!data) return;
+
+  document.documentElement.lang = lang;
+  document.getElementById('tagline').textContent = data.tagline;
+
+  document.getElementById('sec-experience').textContent = data.sections.experience;
+  document.getElementById('sec-education').textContent = data.sections.education;
+  document.getElementById('sec-skills').textContent = data.sections.skills;
+  document.getElementById('sec-langhob').textContent = data.sections.languages_hobbies;
+  document.getElementById('sec-languages').textContent = data.sections.languages;
+  document.getElementById('sec-hobbies').textContent = data.sections.hobbies;
+
+  document.getElementById('experience-list').innerHTML = renderExperience(data);
+  document.getElementById('education-list').innerHTML = renderEducation(data);
+  document.getElementById('skills-grid').innerHTML = renderSkills(data);
+  document.getElementById('languages-list').innerHTML = renderList(data.languages_list);
+  document.getElementById('hobbies-list').innerHTML = renderList(data.hobbies_list);
+
+  // Re-run entry stagger animations for newly rendered content
+  document.querySelectorAll('section[data-animate]').forEach(sec => {
+    const items = sec.querySelectorAll('.entry, .edu-entry, .skill-card, .info-card');
+    items.forEach((item, i) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(16px)';
+      item.style.transition = `opacity 0.4s ${i * 0.06}s ease, transform 0.4s ${i * 0.06}s ease`;
+      requestAnimationFrame(() => setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, 30));
     });
-  }, { threshold: 0.08 });
+  });
+}
 
-  document.querySelectorAll('section[data-animate]').forEach(el => observer.observe(el));
+// ── LANGUAGE SWITCHER ──
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyLocale(btn.dataset.lang);
+    try { localStorage.setItem('cv-lang', btn.dataset.lang); } catch(e) {}
+  });
+});
 
-  // Stagger entry animations within visible sections
-  const entryObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const items = entry.target.querySelectorAll('.entry, .edu-entry, .skill-card, .info-card');
-        items.forEach((item, i) => {
-          item.style.opacity = '0';
-          item.style.transform = 'translateY(16px)';
-          item.style.transition = `opacity 0.4s ${i * 0.07}s ease, transform 0.4s ${i * 0.07}s ease`;
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            }, 50);
-          });
-        });
-        entryObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05 });
+// ── SCROLL PROGRESS ──
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  bar.style.width = (total > 0 ? (scrolled / total) * 100 : 100) + '%';
+}, { passive: true });
 
-  document.querySelectorAll('section[data-animate]').forEach(el => entryObserver.observe(el));
+// ── INTERSECTION OBSERVER FOR SECTIONS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('section[data-animate]').forEach(el => observer.observe(el));
+
+// ── INIT ──
+(function init() {
+  let lang = 'hr';
+  try { lang = localStorage.getItem('cv-lang') || 'hr'; } catch(e) {}
+  if (!LOCALES[lang]) lang = 'hr';
+  const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+  if (activeBtn) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    activeBtn.classList.add('active');
+  }
+  applyLocale(lang);
+})();
 </script>
 </body>
 </html>

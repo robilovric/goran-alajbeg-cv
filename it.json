@@ -1,0 +1,137 @@
+{
+  "tagline": "Ingegnere Elettrotecnico Navale & Nautico",
+  "sections": {
+    "experience": "Esperienza Lavorativa",
+    "education": "Formazione",
+    "skills": "Competenze Tecniche",
+    "languages_hobbies": "Lingue & Hobby",
+    "languages": "Lingue",
+    "hobbies": "Hobby"
+  },
+  "experience": [
+    {
+      "company": "Korkyra Shipping d.o.o.",
+      "date": "05/2025 — 12/2025",
+      "role": "Assistente Elettrotecnico",
+      "bullets": [
+        "Assistenza nella manutenzione e nel monitoraggio dei sistemi elettrici di bordo.",
+        "Lavoro su apparecchiature di navigazione e comunicazione in conformità alle procedure di bordo.",
+        "Partecipazione alla manutenzione preventiva secondo il piano PMS."
+      ]
+    },
+    {
+      "company": "Contea di Spalato-Dalmazia",
+      "date": "2022 — 2025",
+      "role": "Manutenzione apparecchiature IT — lavoro studentesco",
+      "bullets": [
+        "Diagnosi, assistenza e manutenzione di apparecchiature informatiche e di rete.",
+        "Archiviazione ed elaborazione di documentazione nei sistemi informativi interni.",
+        "Comunicazione con gli utenti e supporto tecnico."
+      ]
+    },
+    {
+      "company": "Argola Charter",
+      "date": "2019 — 2024",
+      "role": "Skipper / Base Manager — tempo pieno / parziale",
+      "bullets": [
+        "Conduzione di motoscafi e yacht a motore fino a 15 m di lunghezza.",
+        "Pianificazione di rotte di navigazione lungo la costa e le isole adriatiche.",
+        "Responsabilità per la sicurezza di equipaggio e passeggeri; svolgimento di procedure di sicurezza e briefing.",
+        "Gestione della base charter: coordinamento noleggi, consegna e riconsegna imbarcazioni.",
+        "Revisione invernale e manutenzione tecnica di oltre 50 imbarcazioni diverse."
+      ]
+    },
+    {
+      "company": "M/Y Orlando L",
+      "date": "2019",
+      "role": "Marinaio — lavoro studentesco",
+      "bullets": [
+        "Assistenza alla navigazione e alle operazioni quotidiane dell'equipaggio su uno yacht a motore."
+      ]
+    },
+    {
+      "company": "Dolis d.o.o. & Hotel-Ristorante „Baletna škola",
+      "date": "2018 — 2019",
+      "role": "Cameriere — lavoro studentesco",
+      "bullets": [
+        "Servizio ai clienti e lavoro di squadra in un contesto di ristorazione e alberghiero."
+      ]
+    },
+    {
+      "company": "M/Y Galatea",
+      "date": "2017",
+      "role": "Lavori di manutenzione — tirocinio scolastico",
+      "bullets": [
+        "Acquisizione di conoscenze pratiche sulle attività di manutenzione tecnica della nave."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Facoltà di Studi Marittimi di Spalato",
+      "degree": "Corso di laurea triennale in Tecnologie Elettriche e Informatiche Maritime",
+      "date": "10/2018 — 09/2023",
+      "note": "Titolo: <strong>bacc. Ingegneria Elettrica e Informatica</strong> · Gara universitaria statale di nuoto."
+    },
+    {
+      "institution": "Scuola Marittima di Spalato",
+      "degree": "Istruzione secondaria regolare",
+      "date": "09/2013 — 06/2017",
+      "note": "Indirizzo: <strong>Tecnico della logistica</strong>"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Sistemi Elettrici",
+      "items": [
+        "Sistemi elettrici navali in bassa e alta tensione",
+        "Generatori, trasformatori, quadri elettrici (MSB/ESB) e sistemi UPS",
+        "Azionamenti elettrici e variatori di frequenza (VFD)",
+        "Diagnosi e risoluzione di guasti agli impianti elettrici di bordo"
+      ]
+    },
+    {
+      "title": "Apparecchiature di Navigazione e Comunicazione",
+      "items": [
+        "GMDSS: radio VHF/MF/HF, EPIRB, SART, Inmarsat",
+        "ECDIS, GPS, AIS, radar (ARPA), girobussola, autopilota",
+        "Integrazione, calibrazione e manutenzione dei sistemi di navigazione"
+      ]
+    },
+    {
+      "title": "Automazione e Sistemi di Controllo",
+      "items": [
+        "Sistemi PLC e interfacce SCADA / IAS di bordo",
+        "Sensori, attuatori e pannelli di monitoraggio sala macchine",
+        "Reti di bordo e protocolli di comunicazione (Modbus, NMEA 2000)"
+      ]
+    },
+    {
+      "title": "Apparecchiature Diagnostiche e Strumenti",
+      "items": [
+        "Multimetri, oscilloscopi, tester di isolamento, telecamera termografica",
+        "Lavoro con documentazione tecnica: schemi, disegni, manuali (norme IEC)",
+        "MS Office, AutoCAD Electrical (nozioni di base)"
+      ]
+    },
+    {
+      "title": "Sicurezza e Normative",
+      "items": [
+        "Conoscenza delle convenzioni SOLAS, MARPOL, ISM Code e MLC",
+        "Procedure STCW e SMS di bordo",
+        "Esecuzione di controlli di sicurezza e manutenzione preventiva (PMS)"
+      ]
+    }
+  ],
+  "languages_list": [
+    "<strong>Croato</strong> — madrelingua",
+    "<strong>Inglese</strong> — avanzato (ascolto e parlato: C1, scrittura: B2)"
+  ],
+  "hobbies_list": [
+    "Nautica e vela",
+    "Pesca",
+    "Cucina",
+    "Fitness",
+    "Tuttofare di casa — lavori elettrici e meccanici"
+  ]
+}
