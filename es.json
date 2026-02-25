@@ -1,0 +1,137 @@
+{
+  "tagline": "Ingeniero Eléctrico Marino y Nauta",
+  "sections": {
+    "experience": "Experiencia Laboral",
+    "education": "Educación",
+    "skills": "Competencias Técnicas",
+    "languages_hobbies": "Idiomas y Aficiones",
+    "languages": "Idiomas",
+    "hobbies": "Aficiones"
+  },
+  "experience": [
+    {
+      "company": "Korkyra Shipping d.o.o.",
+      "date": "05/2025 — 12/2025",
+      "role": "Asistente de Oficial Electrotécnico",
+      "bullets": [
+        "Asistencia en el mantenimiento y monitoreo de los sistemas eléctricos de potencia del buque.",
+        "Trabajo en equipos de navegación y comunicación de acuerdo con los procedimientos de la embarcación.",
+        "Participación en el mantenimiento preventivo según el plan PMS."
+      ]
+    },
+    {
+      "company": "Condado de Split-Dalmacia",
+      "date": "2022 — 2025",
+      "role": "Mantenimiento de Equipos Informáticos — trabajo de estudiante",
+      "bullets": [
+        "Diagnóstico, reparación y mantenimiento de equipos informáticos y de red.",
+        "Archivo y procesamiento de documentación en sistemas internos de información.",
+        "Comunicación con usuarios y soporte técnico."
+      ]
+    },
+    {
+      "company": "Argola Charter",
+      "date": "2019 — 2024",
+      "role": "Patrón / Gerente de Base — tiempo completo / parcial",
+      "bullets": [
+        "Operación de lanchas rápidas y yates a motor de hasta 15 m de eslora.",
+        "Planificación de rutas de navegación a lo largo de la costa e islas del Adriático.",
+        "Responsabilidad por la seguridad de la tripulación y los pasajeros; realización de procedimientos e instrucciones de seguridad.",
+        "Gestión de la base de embarcaciones de chárter: coordinación de alquileres y entrega de embarcaciones.",
+        "Servicio invernal y mantenimiento técnico de más de 50 embarcaciones diferentes."
+      ]
+    },
+    {
+      "company": "M/Y Orlando L",
+      "date": "2019",
+      "role": "Marinero — trabajo de estudiante",
+      "bullets": [
+        "Asistencia en la navegación y en las operaciones diarias de la tripulación a bordo de un yate a motor."
+      ]
+    },
+    {
+      "company": "Dolis d.o.o. y Hotel-Restaurante \"Ballet School\"",
+      "date": "2018 — 2019",
+      "role": "Camarero — trabajo de estudiante",
+      "bullets": [
+        "Atención a los huéspedes y trabajo en equipo en un entorno hotelero y de restauración."
+      ]
+    },
+    {
+      "company": "M/Y Galatea",
+      "date": "2017",
+      "role": "Trabajos de mantenimiento — trabajo de estudiante",
+      "bullets": [
+        "Adquisición de conocimientos prácticos en tareas de mantenimiento técnico de embarcaciones."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Facultad de Estudios Marítimos de Split",
+      "degree": "Estudios universitarios de grado en Tecnologías Eléctricas y de la Información Marítimas",
+      "date": "10/2018 — 09/2023",
+      "note": "Título: <strong>Graduado en Ingeniería Eléctrica e Informática</strong> · Competición universitaria estatal de natación."
+    },
+    {
+      "institution": "Escuela Marítima de Split",
+      "degree": "Educación secundaria regular",
+      "date": "09/2013 — 06/2017",
+      "note": "Programa: <strong>Técnico en Logística</strong>"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Sistemas Eléctricos",
+      "items": [
+        "Sistemas eléctricos de potencia de baja y alta tensión en buques",
+        "Generadores, transformadores, cuadros eléctricos (MSB/ESB) y sistemas UPS",
+        "Accionamientos eléctricos y variadores de frecuencia (VFD)",
+        "Diagnóstico y resolución de fallos en instalaciones eléctricas navales"
+      ]
+    },
+    {
+      "title": "Equipos de Navegación y Comunicación",
+      "items": [
+        "GMDSS: radio VHF/MF/HF, EPIRB, SART, Inmarsat",
+        "ECDIS, GPS, AIS, radar (ARPA), girocompás, piloto automático",
+        "Integración, calibración y mantenimiento de sistemas de navegación"
+      ]
+    },
+    {
+      "title": "Sistemas de Automatización y Control",
+      "items": [
+        "Sistemas PLC e interfaces SCADA / IAS del buque",
+        "Sensores, actuadores y paneles de monitoreo de sala de máquinas",
+        "Redes de a bordo y protocolos de comunicación (Modbus, NMEA 2000)"
+      ]
+    },
+    {
+      "title": "Equipos y Herramientas de Diagnóstico",
+      "items": [
+        "Multímetros, osciloscopios, medidores de aislamiento, cámara termográfica",
+        "Trabajo con documentación técnica: esquemas, planos, manuales (normas IEC)",
+        "MS Office, AutoCAD Electrical (nivel básico)"
+      ]
+    },
+    {
+      "title": "Seguridad y Normativa",
+      "items": [
+        "Conocimiento de los convenios SOLAS, MARPOL, Código ISM y MLC",
+        "Procedimientos STCW y SMS del buque",
+        "Realización de inspecciones de seguridad y mantenimiento preventivo (PMS)"
+      ]
+    }
+  ],
+  "languages_list": [
+    "<strong>Croata</strong> — lengua materna",
+    "<strong>Inglés</strong> — avanzado (comprensión y expresión oral: C1, escritura: B2)"
+  ],
+  "hobbies_list": [
+    "Deportes náuticos y vela",
+    "Pesca",
+    "Cocina",
+    "Fitness",
+    "\"Manitas\" en el hogar — trabajos eléctricos y mecánicos"
+  ]
+}
